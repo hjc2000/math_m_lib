@@ -23,7 +23,7 @@ function ret=solve_equs(equs, known_syms)
             break;
         end
     
-        equs=replace_and_remove_first_equation(equs,intersection(1));
+        equs=solve_and_remove_equation(equs,1,intersection(1));
     end
     ret=simplify(equs);
 end
