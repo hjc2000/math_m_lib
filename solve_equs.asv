@@ -14,19 +14,18 @@ function ret = solve_equs(equs, known_syms)
     % 在循环里消元，不断消除未知变量
     index = 1;
     while true
-        if(index > length(equs))
-            break;
-        end
-
         intersection = find_syms_intersection(unknown_syms, equs(index));
         if(isempty(intersection))
-            % 如果此方程没有未知变量，前往下一个方程
-            index = index + 1;
-            continue;
+            % 如果此方程没有未知变量
+            if(index=length(equs))
+                % 已经是最后一个方程了
+                break;
+            else
+                index = index + 1;
+            end
         end
     
-        % 对 intersection 中的第一个变量进行消元
-        equs = solve_and_remove_equation(equs, index, intersection(1));
+        equs = solve_and_remove_equation(equs, 1, intersection(1));
     end
 
     ret = simplify(equs);
