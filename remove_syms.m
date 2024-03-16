@@ -15,15 +15,15 @@
         % remaining_syms 现在是 [a, c, e]
 %}
 function result = remove_syms(original_syms, syms_to_remove)
-    % 将原始符号变量数组转换为集合
-    original_set = symvar(original_syms);
-
-    % 将要移除的符号变量转换为集合
-    remove_set = symvar(syms_to_remove);
-
-    % 计算差集，即移除指定的符号变量
-    result_set = setdiff(original_set, remove_set);
-
-    % 将结果集合转换回符号变量数组
-    result = sym(result_set);
+	% 将原始符号变量数组转换为集合
+	original_set = symvar(original_syms);
+	
+	% 将要移除的符号变量转换为集合
+	remove_set = symvar(syms_to_remove);
+	
+	% 计算差集，即移除指定的符号变量
+	result_set = setdiff(original_set, remove_set);
+	
+	% 将结果集合转换回符号变量数组
+	result = sym(result_set);
 end
